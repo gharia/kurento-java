@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.kurento</groupId>
+  <artifactId>kurento-repository-server</artifactId>
+  <versioning>
+    <versions>
+      <version>6.13.2-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20200510174914</lastUpdated>
+  </versioning>
+</metadata>
