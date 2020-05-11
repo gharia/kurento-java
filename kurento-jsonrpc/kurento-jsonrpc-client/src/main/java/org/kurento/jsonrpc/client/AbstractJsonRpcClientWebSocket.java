@@ -778,7 +778,9 @@ public abstract class AbstractJsonRpcClientWebSocket extends JsonRpcClient {
       fireConnected();
     }
 
-    if (heartbeating) {
+    log.info("Bzlog: updateSession : Is heartbeating : {}", heartbeating);
+    if (!heartbeating) {
+      log.info("Bzlog: Enabling heartbeat after reconnect/updateSession!");
       enableHeartbeat();
     }
   }

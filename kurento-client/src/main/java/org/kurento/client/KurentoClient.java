@@ -239,11 +239,15 @@ public class KurentoClient {
   }
 
   protected KurentoClient(JsonRpcClient client) {
+    log.info("Bzlog: Request Timeout from system properties : {} ", PropertiesManager.getProperty("kurento.client.requestTimeout"));
+    log.info("Bzlog: Keep alive (ping interval) from system properties : {} ", PropertiesManager.getProperty("kurento.client.keepAliveTime"));
     this.client = client;
     this.manager = new RomManager(new RomClientJsonRpcClient(client));
     client.setRequestTimeout(requesTimeout);
     client.setConnectionTimeout((int) connectionTimeout);
+    log.info("Bzlog: client class name: {}, {}", client.getClass(), client.getClass().getName());
     if (client instanceof AbstractJsonRpcClientWebSocket) {
+      log.info("Bzlog: instance of AbstractJsonRpcClientWebSocket");
       ((AbstractJsonRpcClientWebSocket) client).enableHeartbeat(KEEPALIVE_TIME);
     }
     try {
